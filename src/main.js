@@ -6,6 +6,9 @@ import '@/style/index.scss' // glob scss
 import './plugins/element.js'
 import animated from 'animate.css'
 import '@/assets/iconfont/iconfont.css'
+import {installCardDragger} from 'carddragger'
+
+Vue.use(installCardDragger)
 
 Vue.use(animated)
 // import SlideVerify from 'vue-monoplasty-slide-verify'

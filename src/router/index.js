@@ -6,7 +6,9 @@ Vue.use(Router)
 
 import Layout from '@/layout'
 import NavTest from './modules/nav-test'
-import { Message } from 'element-ui'
+import {
+  Message
+} from 'element-ui'
 import getTitle from '@/utils/getTitle'
 
 /**
@@ -20,12 +22,13 @@ import getTitle from '@/utils/getTitle'
  */
 
 /*通用routers*/
-export const currencyRoutes = [
-  {
+export const currencyRoutes = [{
     path: '/login',
     name: 'Login',
     component: () => import('@/views/login'),
-    meta: { title: '登录页' },
+    meta: {
+      title: '登录页'
+    },
     hidden: true
   },
   {
@@ -39,14 +42,15 @@ export const currencyRoutes = [
     name: 'Home',
     component: Layout,
     redirect: '/dashbord',
-    children: [
-      {
-        path: 'dashbord',
-        name: 'Dashbord',
-        component: () => import('@/views/dashboard'),
-        meta: { title: '首页', icon: 'el-icon-s-data' }
+    children: [{
+      path: 'dashbord',
+      name: 'Dashbord',
+      component: () => import('@/views/dashboard'),
+      meta: {
+        title: '首页',
+        icon: 'el-icon-s-data'
       }
-    ]
+    }]
   },
   {
     path: '/personal',
@@ -54,32 +58,48 @@ export const currencyRoutes = [
     component: Layout,
     redirect: '/personal/index',
     hidden: true,
-    children: [
-      {
-        path: 'index',
-        name: 'Personal-index',
-        component: () => import('@/views/personal'),
-        meta: { title: '个人中心' }
+    children: [{
+      path: 'index',
+      name: 'Personal-index',
+      component: () => import('@/views/personal'),
+      meta: {
+        title: '个人中心'
       }
-    ]
+    }]
   },
   {
     path: '/driver',
     name: 'Driver',
     component: Layout,
     redirect: '/driver/index',
-    children: [
-      {
-        path: 'index',
-        name: 'Driver-index',
-        component: () => import('@/views/driver-page'),
-        meta: { title: '引导指南', icon: 'el-icon-s-flag' }
+    children: [{
+      path: 'index',
+      name: 'Driver-index',
+      component: () => import('@/views/driver-page'),
+      meta: {
+        title: '引导指南',
+        icon: 'el-icon-s-flag'
       }
-    ]
+    }]
   }
 ]
 /*动态添加routers*/
 export const asyncRoutes = [
+  {
+    path: '/carddragger',
+    component: Layout,
+    name: 'Carddragger',
+    redirect: '/carddragger/index',
+    children: [{
+      path: 'carddragger',
+      name: 'carddragger-index',
+      component: () => import('@/views/carddragger'),
+      meta: {
+        title: '拖拽组件',
+        icon: 'el-icon-picture-outline'
+      }
+    }]
+  },
   {
     path: '/permission',
     name: 'Permission',
@@ -89,12 +109,14 @@ export const asyncRoutes = [
       title: '权限许可',
       icon: 'el-icon-lock'
     },
-    children: [
-      {
+    children: [{
         path: 'page-user',
         name: 'PageUser',
         component: () => import('@/views/permission/page-user'),
-        meta: { title: '用户页面', icon: 'el-icon-user' }
+        meta: {
+          title: '用户页面',
+          icon: 'el-icon-user'
+        }
       },
       {
         path: 'page-admin',
@@ -109,7 +131,10 @@ export const asyncRoutes = [
         path: 'roles',
         name: 'Roles',
         component: () => import('@/views/permission/roles'),
-        meta: { title: '权限设置', icon: 'el-icon-s-tools' }
+        meta: {
+          title: '权限设置',
+          icon: 'el-icon-s-tools'
+        }
       }
     ]
   },
@@ -122,18 +147,21 @@ export const asyncRoutes = [
       title: 'Table',
       icon: 'el-icon-table iconfont'
     },
-    children: [
-      {
+    children: [{
         path: 'base-table',
         name: 'BaseTable',
         component: () => import('@/views/table/common-table'),
-        meta: { title: '普通表格' }
+        meta: {
+          title: '普通表格'
+        }
       },
       {
         path: 'complex-table',
         name: 'ComplexTable',
         component: () => import('@/views/table/complex-table'),
-        meta: { title: '复杂表格' }
+        meta: {
+          title: '复杂表格'
+        }
       }
     ]
   },
@@ -142,39 +170,51 @@ export const asyncRoutes = [
     component: Layout,
     name: 'Icons',
     redirect: '/icons/index',
-    children: [
-      {
-        path: 'index',
-        name: 'Icons-index',
-        component: () => import('@/views/icons'),
-        meta: { title: 'Icons图标', icon: 'el-icon-picture-outline' }
+    children: [{
+      path: 'index',
+      name: 'Icons-index',
+      component: () => import('@/views/icons'),
+      meta: {
+        title: 'Icons图标',
+        icon: 'el-icon-picture-outline'
       }
-    ]
+    }]
   },
   {
     path: '/components',
     component: Layout,
     name: 'Components',
     redirect: '/components/slide-yz',
-    meta: { icon: 'el-icon-coin', title: '部分组件' },
-    children: [
-      {
+    meta: {
+      icon: 'el-icon-coin',
+      title: '部分组件'
+    },
+    children: [{
         path: 'slide-yz',
         name: 'Sldie-yz',
         component: () => import('@/views/components/slide-yz'),
-        meta: { icon: 'el-icon-s-claim', title: '滑动验证' }
+        meta: {
+          icon: 'el-icon-s-claim',
+          title: '滑动验证'
+        }
       },
       {
         path: 'upload',
         name: 'Upload',
         component: () => import('@/views/components/pushImg'),
-        meta: { icon: 'el-icon-upload', title: '上传图片' }
+        meta: {
+          icon: 'el-icon-upload',
+          title: '上传图片'
+        }
       },
       {
         path: 'carousel',
         name: 'Carousel',
         component: () => import('@/views/components/carousel'),
-        meta: { icon: 'el-icon-lunbo iconfont', title: '轮播' }
+        meta: {
+          icon: 'el-icon-lunbo iconfont',
+          title: '轮播'
+        }
       }
     ]
   },
@@ -183,25 +223,33 @@ export const asyncRoutes = [
     component: Layout,
     name: 'Echarts',
     redirect: '/echarts/slide-chart',
-    meta: { icon: 'el-icon-s-marketing', title: 'Echarts' },
-    children: [
-      {
+    meta: {
+      icon: 'el-icon-s-marketing',
+      title: 'Echarts'
+    },
+    children: [{
         path: 'slide-chart',
         name: 'Sldie-chart',
         component: () => import('@/views/echarts/slide-chart'),
-        meta: { title: '滑动charts' }
+        meta: {
+          title: '滑动charts'
+        }
       },
       {
         path: 'dynamic-chart',
         name: 'Dynamic-chart',
         component: () => import('@/views/echarts/dynamic-chart'),
-        meta: { title: '切换charts' }
+        meta: {
+          title: '切换charts'
+        }
       },
       {
         path: 'map-chart',
         name: 'Map-chart',
         component: () => import('@/views/echarts/map-chart'),
-        meta: { title: 'map' }
+        meta: {
+          title: 'map'
+        }
       }
     ]
   },
@@ -210,25 +258,33 @@ export const asyncRoutes = [
     component: Layout,
     name: 'Excel',
     redirect: '/excel-operate/excel-out',
-    meta: { icon: 'el-icon-excel iconfont', title: 'Excel' },
-    children: [
-      {
+    meta: {
+      icon: 'el-icon-excel iconfont',
+      title: 'Excel'
+    },
+    children: [{
         path: 'excel-out',
         name: 'Excel-out',
         component: () => import('@/views/excel-operate/excel-out'),
-        meta: { title: 'Excel导出' }
+        meta: {
+          title: 'Excel导出'
+        }
       },
       {
         path: 'excel-in',
         name: 'Excel-in',
         component: () => import('@/views/excel-operate/excel-in'),
-        meta: { title: 'Excel导入' }
+        meta: {
+          title: 'Excel导入'
+        }
       },
       {
         path: 'mutiheader-out',
         name: 'Mutiheader-out',
         component: () => import('@/views/excel-operate/mutiheader-out'),
-        meta: { title: '多级表头导出' }
+        meta: {
+          title: '多级表头导出'
+        }
       }
     ]
   },
@@ -237,19 +293,23 @@ export const asyncRoutes = [
     component: Layout,
     name: 'Error',
     redirect: '/error/404',
-    children: [
-      {
-        path: '404',
-        name: 'Page404',
-        component: () => import('@/views/error-page/404'),
-        meta: { title: '404', icon: 'el-icon-s-release' }
+    children: [{
+      path: '404',
+      name: 'Page404',
+      component: () => import('@/views/error-page/404'),
+      meta: {
+        title: '404',
+        icon: 'el-icon-s-release'
       }
-    ]
+    }]
   },
   {
     path: 'https://github.com/gcddblue/vue-admin-webapp',
     name: 'Github',
-    meta: { icon: 'el-icon-link', title: '项目链接' }
+    meta: {
+      icon: 'el-icon-link',
+      title: '项目链接'
+    }
   },
   NavTest,
   {
@@ -263,7 +323,10 @@ const creatRouter = () => {
   return new Router({
     routes: currencyRoutes,
     scrollBehavior() {
-      return { x: 0, y: 0 }
+      return {
+        x: 0,
+        y: 0
+      }
     }
   })
 }
@@ -291,21 +354,26 @@ router.beforeEach(async (to, from, next) => {
       } else {
         try {
           //获取全部权限
-          const { roles } = await store.dispatch('user/_getInfo')
-          console.log(JSON.stringify(roles),'用户权限')          
+          const {
+            roles
+          } = await store.dispatch('user/_getInfo')
+          console.log(JSON.stringify(roles), '用户权限')
           //获取用户可操作的权限
           const addRoutes = await store.dispatch(
             'permission/getAsyncRoutes',
             roles
           )
-          console.log(addRoutes,'addRoutes');
-          
+          console.log(addRoutes, 'addRoutes');
+
           //增加路由
           router.addRoutes(addRoutes)
 
           // hack method to ensure that addRoutes is complete
           // set the replace: true, so the navigation will not leave a history record
-          next({ ...to, replace: true })
+          next({
+            ...to,
+            replace: true
+          })
         } catch (error) {
           Message.error(error)
         }
